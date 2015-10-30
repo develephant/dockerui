@@ -1,4 +1,4 @@
-angular.module('dockerui', ['dockerui.templates', 'ngRoute', 'dockerui.services', 'dockerui.filters', 'masthead', 'footer', 'dashboard', 'container', 'containers', 'containersNetwork', 'images', 'image', 'pullImage', 'startContainer', 'sidebar', 'info', 'builder', 'containerLogs', 'containerTop', 'events', 'stats'])
+angular.module('dockerui', ['dockerui.templates', 'ngRoute', 'ngMaterial', 'ngAnimate', 'ngAria', 'ngMdIcons', 'dockerui.services', 'dockerui.filters', 'masthead', 'footer', 'dashboard', 'container', 'containers', 'images', 'image', 'pullImage', 'startContainer', 'sidebar', 'info', 'builder', 'containerLogs', 'containerTop', 'events', 'stats'])
     .config(['$routeProvider', function ($routeProvider) {
         'use strict';
         $routeProvider.when('/', {
@@ -25,10 +25,10 @@ angular.module('dockerui', ['dockerui.templates', 'ngRoute', 'dockerui.services'
             templateUrl: 'app/components/stats/stats.html',
             controller: 'StatsController'
         });
-        $routeProvider.when('/containers_network', {
-            templateUrl: 'app/components/containersNetwork/containersNetwork.html',
-            controller: 'ContainersNetworkController'
-        });
+        // $routeProvider.when('/containers_network', {
+        //     templateUrl: 'app/components/containersNetwork/containersNetwork.html',
+        //     controller: 'ContainersNetworkController'
+        // });
         $routeProvider.when('/images/', {
             templateUrl: 'app/components/images/images.html',
             controller: 'ImagesController'

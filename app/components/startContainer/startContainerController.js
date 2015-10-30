@@ -1,4 +1,4 @@
-angular.module('startContainer', ['ui.bootstrap'])
+angular.module('startContainer', [])
     .controller('StartContainerController', ['$scope', '$routeParams', '$location', 'Container', 'Messages', 'containernameFilter', 'errorMsgFilter',
         function ($scope, $routeParams, $location, Container, Messages, containernameFilter, errorMsgFilter) {
             $scope.template = 'app/components/startContainer/startcontainer.html';

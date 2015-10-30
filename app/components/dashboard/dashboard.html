@@ -1,8 +1,126 @@
-<div class="col-xs-offset-1">
-    <!--<div class="sidebar span4">
-        <div ng-include="template" ng-controller="SideBarController"></div>
-    </div>-->
-    <div class="row">
+<md-content layout="column" layout-fill>
+<md-grid-list md-cols="4" md-row-height="4:4" md-gutter="1em" class="gridlistDashboard">
+      <md-grid-tile class="gray md-whiteframe-z2" ng-repeat="container in containers|orderBy:predicate">
+
+        <!--{{ $log.log(container) }}-->
+
+        <md-grid-tile-header layout="row" layout-padding layout-align="start center">
+          <div class="md-headline">
+          <md-tooltip md-direction="bottom">Container Name</md-tooltip>
+          <ng-md-icon class="md-avatar-icon" icon="storage" style="fill:gray"></ng-md-icon>
+          {{ container|containername | limitTo:24 }}</div>
+        </md-grid-tile-header>
+
+        <md-list>
+          <md-list-item>
+            <div class="md-list-item-text">
+              <md-tooltip md-direction="left">Image Name</md-tooltip>
+              <ng-md-icon class="md-avatar-icon" icon="directions_ferry"></ng-md-icon>
+              <strong>{{ container.Image | limitTo:24 }}</strong>
+            </div>
+          </md-list-item>
+          <md-list-item>
+            <div class="md-list-item-text">
+              <md-tooltip md-direction="left">Uptime</md-tooltip>
+              <ng-md-icon class="md-avatar-icon" icon="timer"></ng-md-icon>
+              <span class="md-body-2">{{ container.Status | limitTo:24 }}</span>
+            </div>
+          </md-list-item>
+          <md-list-item>
+            <div class="md-list-item-text">
+              <md-tooltip md-direction="left">Container ID</md-tooltip>
+              <ng-md-icon class="md-avatar-icon" icon="bookmark_outline"></ng-md-icon>
+              <span class="md-body-2">{{ container.Id | limitTo:24 }}...</span>
+            </div>
+          </md-list-item>
+          <md-list-item>
+            <div class="md-list-item-text">
+              <md-tooltip md-direction="left">Starting Command</md-tooltip>
+              <ng-md-icon class="md-avatar-icon" icon="developer_mode"></ng-md-icon>
+              <span class="md-body-2">{{ container.Command | limitTo:24 }}</span>
+            </div>
+          </md-list-item>
+          <!-- <md-list-item>
+            <ng-md-icon icon="timer"></ng-md-icon>
+            <span flex></span>
+            <div><a class="md-button md-button-link" href="#/containers/{{ container.Id}}/">{{ container.Id | limitTo : 24 }}...</a></div>
+          </md-list-item> -->
+        </md-list>
+
+        <md-grid-tile-footer layout="row" layout-align="end center">
+
+          <md-button class="md-icon-button" aria-label="Open stats"><ng-md-icon icon="poll"></ng-md-icon></md-button>
+
+          <md-button class="md-icon-button" aria-label="Open settings"><ng-md-icon icon="settings_applications"></ng-md-icon></md-button>
+
+          <md-menu md-position-mode="target-right target">
+
+            <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)" aria-label="Open menu"><ng-md-icon icon="more_horiz"></ng-md-icon></md-button>
+
+            <md-menu-content width="3">
+
+              <md-menu-item>
+                <md-button ng-click="doMenuItem($event)">
+                  <div layout="row">
+                    <p flex>Stop Container</p>
+                    <ng-md-icon style="fill:red" icon="remove_circle_outline"></ng-md-icon>
+                  </div>
+                </md-button>
+              </md-menu-item>
+
+              <md-menu-item>
+                <md-button ng-click="doMenuItem($event)">
+                  <div layout="row">
+                    <p flex>Start Container</p>
+                    <ng-md-icon icon="play_arrow"></ng-md-icon>
+                  </div>
+                </md-button>
+              </md-menu-item>
+
+              <md-divider></md-divider>
+
+              <md-menu-item>
+                <md-button ng-click="doMenuItem($event)">
+                  <div layout="row">
+                    <p flex>Pause Container</p>
+                    <ng-md-icon icon="pause"></ng-md-icon>
+                  </div>
+                </md-button>
+              </md-menu-item>
+
+              <md-menu-item>
+                <md-button ng-click="doMenuItem($event)">
+                  <div layout="row">
+                    <p flex>Unpause Container</p>
+                    <ng-md-icon icon="play_arrow"></ng-md-icon>
+                  </div>
+                </md-button>
+              </md-menu-item>
+
+              <md-divider></md-divider>
+
+              <md-menu-item>
+                <md-button class="md-warn" ng-click="doMenuItem($event)">
+                  <div layout="row">
+                    <p flex>Delete Container</p>
+                    <ng-md-icon icon="delete"></ng-md-icon>
+                  </div>
+                </md-button>
+              </md-menu-item>
+
+            </md-menu-content>
+          </md-menu>
+
+
+
+        </md-grid-tile-footer>
+      </md-grid-tile>
+</md-grid-list>
+</md-content>
+
+
+<!--<div class="col-xs-offset-1">
+     <div class="row">
         <div class="col-xs-10" id="masthead" style="display:none">
             <div class="jumbotron">
                 <h1>DockerUI</h1>
@@ -49,4 +167,4 @@
             </canvas>
         </div>
     </div>
-</div>
+</div> -->

@@ -7,18 +7,23 @@
     <meta name="description" content="">
     <meta name="author" content="<%= pkg.author %>">
 
+    <base href="/">
+    <style type="text/css">
+        /**
+         * Hide when Angular is not yet loaded and initialized
+         */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+    </style>
+
     <link href="vendor.css" rel="stylesheet">
     <link href="<%= pkg.name %>.css" rel="stylesheet">
-
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <script src="angular.js"></script>
-    <script src="vendor.js"></script>
-    <script src="<%= pkg.name %>.js"></script>
 
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="ico/favicon.ico">
@@ -28,17 +33,87 @@
     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
 </head>
 
-<body>
+<body ng-cloak>
+  <div layout="column" ng-controller="MastheadController" layout-fill>
+    <md-content>
+      <md-toolbar class="md-whiteframe-z1" z-index="-1">
+        <div class="md-toolbar-tools">
+          <ng-md-icon icon="directions_ferry" style="margin-right: 10px;"></ng-md-icon>
+          <h2><strong>Marina CP</strong></h2>
+          <span flex></span>
 
-<div class="container">
+          <md-menu md-position-mode="target-right target">
+
+            <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)" aria-label="Open menu"><ng-md-icon icon="menu"></ng-md-icon></md-button>
+
+            <md-menu-content width="4">
+
+              <md-menu-item>
+                <md-button ng-click="doMenuItem($event)">
+                  <div layout="row">
+                    <p flex>New Container</p>
+                    <ng-md-icon icon="add_box" style="fill:green"></ng-md-icon>
+                  </div>
+                </md-button>
+              </md-menu-item>
+
+              <md-divider></md-divider>
+
+              <md-menu-item>
+                <md-button ng-click="doMenuItem($event)">
+                  <div layout="row">
+                    <p flex>Show Containers</p>
+                    <ng-md-icon icon="storage"></ng-md-icon>
+                  </div>
+                </md-button>
+              </md-menu-item>
+
+              <md-divider></md-divider>
+
+              <md-menu-item>
+                <md-button ng-click="doMenuItem($event)">
+                  <div layout="row">
+                    <p flex>Browse Images</p>
+                    <ng-md-icon icon="directions_ferry"></ng-md-icon>
+                  </div>
+                </md-button>
+              </md-menu-item>
+
+              <md-divider></md-divider>
+
+              <md-menu-item>
+                <md-button ng-click="doMenuItem($event)">
+                  <div layout="row">
+                    <p flex>Settings</p>
+                    <ng-md-icon icon="settings"></ng-md-icon>
+                  </div>
+                </md-button>
+              </md-menu-item>
+              
+            </md-menu-content>
+
+          </md-menu>
+
+        </div>
+      </md-toolbar>
+    </md-content>
+    <md-content layout-padding layout-margin>
+      <div ng-view></div>
+    </md-content>
+  </div>
+
+
+<!-- <div class="container">
     <div ng-include="template" ng-controller="MastheadController"></div>
-  <h2>Hazord</h2>
+
     <div id="view" ng-view></div>
 
     <div class="container-bottom"></div>
     <div ng-include="template" ng-controller="FooterController"></div>
-</div>
+</div> -->
 
-
+  <script src="angular.js"></script>
+  <script src="vendor.js"></script>
+  <script src="<%= pkg.name %>.js"></script>
 </body>
 </html>

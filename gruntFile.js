@@ -44,12 +44,6 @@ module.exports = function (grunt) {
             js: ['app/**/*.js', '!app/**/*.spec.js'],
             jsTpl: ['<%= distdir %>/templates/**/*.js'],
             jsVendor: [
-                'bower_components/jquery/dist/jquery.js',
-                'bower_components/jquery.gritter/js/jquery.gritter.js',
-                'bower_components/bootstrap/dist/js/bootstrap.js',
-                'bower_components/spin.js/spin.js',
-                'bower_components/vis/dist/vis.js',
-                'bower_components/Chart.js/Chart.js',
                 'bower_components/oboe/dist/oboe-browser.js',
                 'assets/js/legend.js' // Not a bower package
             ],
@@ -59,9 +53,8 @@ module.exports = function (grunt) {
             tpl: ['app/components/**/*.html'],
             css: ['assets/css/app.css'],
             cssVendor: [
-                'bower_components/bootstrap/dist/css/bootstrap.css',
-                'bower_components/jquery.gritter/css/jquery.gritter.css',
-                'bower_components/vis/dist/vis.css'
+                'bower_components/angular-material/angular-material.css',
+                'bower_components/angular-material-icons/angular-material-icons.css'
             ]
         },
         clean: {
@@ -134,10 +127,12 @@ module.exports = function (grunt) {
             angular: {
                 src: ['bower_components/angular/angular.js',
                     'bower_components/angular-route/angular-route.js',
+                    'bower_components/angular-material/angular-material.js',
                     'bower_components/angular-resource/angular-resource.js',
-                    'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-                    'bower_components/angular-oboe/dist/angular-oboe.js',
-                    'bower_components/angular-visjs/angular-vis.js'],
+                    'bower_components/angular-animate/angular-animate.js',
+                    'bower_components/angular-aria/angular-aria.js',
+                    'bower_components/angular-material-icons/angular-material-icons.js',
+                    'bower_components/angular-oboe/dist/angular-oboe.js'],
                 dest: '<%= distdir %>/angular.js'
             }
         },
