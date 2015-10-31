@@ -7,3 +7,4 @@ bower_components
 dist
 dockerui
 *.iml
+.remote-sync.json
