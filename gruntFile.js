@@ -131,6 +131,7 @@ module.exports = function (grunt) {
                     'bower_components/angular-resource/angular-resource.js',
                     'bower_components/angular-animate/angular-animate.js',
                     'bower_components/angular-aria/angular-aria.js',
+                    'bower_components/angular-messages/angular-messages.js',
                     'bower_components/angular-material-icons/angular-material-icons.js',
                     'bower_components/angular-oboe/dist/angular-oboe.js'],
                 dest: '<%= distdir %>/angular.js'

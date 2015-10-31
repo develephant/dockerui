@@ -55,10 +55,10 @@ angular.module('dockerui.filters', [])
             }
 
             if (state.Ghost && state.Running) {
-                return 'label-important';
+                return 'md-warn';
             }
             if (state.Running) {
-                return 'label-success';
+                return 'md-primary';
             }
             return '';
         };

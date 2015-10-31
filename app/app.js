@@ -1,4 +1,4 @@
-angular.module('dockerui', ['dockerui.templates', 'ngRoute', 'ngMaterial', 'ngAnimate', 'ngAria', 'ngMdIcons', 'dockerui.services', 'dockerui.filters', 'masthead', 'footer', 'dashboard', 'container', 'containers', 'images', 'image', 'pullImage', 'startContainer', 'sidebar', 'info', 'builder', 'containerLogs', 'containerTop', 'events', 'stats'])
+angular.module('dockerui', ['dockerui.templates', 'ngRoute', 'ngMaterial', 'ngAnimate', 'ngMessages', 'ngAria', 'ngMdIcons', 'dockerui.services', 'dockerui.filters', 'masthead', 'footer', 'dashboard', 'container', 'containers', 'images', 'image', 'pullImage', 'startContainer', 'sidebar', 'info', 'builder', 'containerLogs', 'containerTop', 'events', 'stats'])
     .config(['$routeProvider', function ($routeProvider) {
         'use strict';
         $routeProvider.when('/', {
